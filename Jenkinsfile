@@ -69,7 +69,7 @@ stages {
         stage('Run terraform') {
             steps {
                 dir('Terraform') {                
-                    git branch: 'main', url: 'https://github.com/seroslaw/Panda_Terraform.git'
+                    git branch: 'master', url: 'https://github.com/seroslaw/Panda_Terraform.git'
                     withAWS(credentials:'AWS', region: 'us-east-1') {
                             sh 'terraform init && terraform apply -auto-approve -var-file="terraform.tfvars"'
                     } 
